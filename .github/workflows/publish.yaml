@@ -29,8 +29,7 @@ jobs:
       - uses: mbowman100/swagger-validator-action@master
         name: Validate schemas
         with: 
-          files: |               
-            ./apis/v1/holders/schema.yaml
+          files: |                           
             ./apis/v1/accounts/schema.yaml            
 
   publish:
@@ -55,11 +54,5 @@ jobs:
         with:
           readme-oas-key: ${{ secrets.ACCOUNTS_API_README_OAS_KEY_DEV }}
           oas-file-path: './apis/v1/accounts/schema.yaml'
-          api-version: 'v0.05'  
-          
-      - uses: readmeio/github-readme-sync@v2
-        name: Publish Holders API Reference to readme.io
-        with:
-          readme-oas-key: ${{ secrets.HOLDERS_APIS_README_OAS_KEY_DEV }}
-          oas-file-path: './apis/v1/holders/schema.yaml'
-          api-version: 'v0.05'
+          api-version: 'v0.05'         
+      
