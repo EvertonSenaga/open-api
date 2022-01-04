@@ -61,6 +61,6 @@ jobs:
       - uses: readmeio/github-readme-sync@v2
         name: Publish Holders API Reference to readme.io
         with:
-          readme-oas-key: ${{ secrets.ACCOUNTS_APIS_README_OAS_KEY_DEV }}
+          readme-oas-key: ${{ secrets.HOLDERS_APIS_README_OAS_KEY_DEV }}
           oas-file-path: './apis/v1/holders/schema.yaml'
           api-version: 'v0.05'
