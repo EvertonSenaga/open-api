@@ -29,12 +29,12 @@ jobs:
       - uses: mbowman100/swagger-validator-action@master
         name: Validate schemas
         with: 
-          files: |            
-            ./apis/v1/ted/schema.yaml            
-            ./apis/v1/helpers/schema.yaml
+          files: |               
+            ./apis/v1/holders/schema.yaml
+            ./apis/v1/accounts/schema.yaml
 
   publish:
-    if: ${{ success() && github.ref	== 'refs/heads/main' }}
+    if: ${{ success() && github.ref	== 'refs/heads/ted' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -51,8 +51,8 @@ jobs:
           regex: false      
       
       - uses: readmeio/github-readme-sync@v2
-        name: Publish TED API Reference to readme.io
+        name: Publish Accounts API Reference to readme.io
         with:
-          readme-oas-key: ${{ secrets.EVENTS_API_README_OAS_KEY }}
-          oas-file-path: './apis/v1/ted/schema.yaml'
-          api-version: 'v0.05'    
+          readme-oas-key: ${{ secrets.ACCOUNTS_API_README_OAS_KEY }}
+          oas-file-path: './apis/v1/accounts/schema.yaml'
+          api-version: 'v0.05'  
