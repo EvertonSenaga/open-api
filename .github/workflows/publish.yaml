@@ -31,8 +31,7 @@ jobs:
         with: 
           files: |               
             ./apis/v1/holders/schema.yaml
-            ./apis/v1/accounts/schema.yaml
-            ./apis/v1/holders/schema.yaml
+            ./apis/v1/accounts/schema.yaml            
 
   publish:
     if: ${{ success() && github.ref	== 'refs/heads/ted' }}
