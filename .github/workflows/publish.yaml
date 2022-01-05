@@ -29,9 +29,8 @@ jobs:
       - uses: mbowman100/swagger-validator-action@master
         name: Validate schemas
         with: 
-          files: |                           
-            ./apis/v1/accounts/schema.yaml 
-            ./apis/v1/holders/schema.yaml
+          files: |            
+            ./apis/v1/accounts/schema.yaml            
 
   publish:
     if: ${{ success() && github.ref	== 'refs/heads/ted' }}
@@ -55,5 +54,5 @@ jobs:
         with:
           readme-oas-key: ${{ secrets.ACCOUNTS_API_README_OAS_KEY_DEV }}
           oas-file-path: './apis/v1/accounts/schema.yaml'
-          api-version: 'v0.05'         
+          api-version: 'v0.05'
       
