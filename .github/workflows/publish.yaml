@@ -41,6 +41,7 @@ jobs:
             ./apis/v1/paybill/schema.yaml
             ./apis/v1/events/schema.yaml
             ./apis/v1/helpers/schema.yaml
+            ./apis/v1/pix/schema.yaml
   publish:
     if: ${{ success() && github.ref=='refs/heads/ted' }}
     runs-on: ubuntu-latest
@@ -91,4 +92,11 @@ jobs:
         with:
           readme-oas-key: ${{ secrets.EVENTS_API_README_OAS_KEY_DEV }}
           oas-file-path: './apis/v1/events/schema.yaml'
+          api-version: 'v0.05'
+          
+      - uses: readmeio/github-readme-sync@v2
+        name: Publish PIX API Reference to readme.io
+        with:
+          readme-oas-key: ${{ secrets.PIX_API_README_OAS_KEY_DEV }}
+          oas-file-path: './apis/v1/pix/schema.yaml'
           api-version: 'v0.05'
